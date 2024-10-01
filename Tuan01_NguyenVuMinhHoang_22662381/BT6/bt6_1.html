@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+
+            box-sizing: border-box;
+            margin: 0 auto;
+
+        }
+
+        td,
+        tr {
+            max-width: 100%;
+            white-space: nowrap;
+        }
+
+        .container {
+            width: 800px;
+            background-color: #99cdff;
+        }
+
+        .header-box {
+            margin-top: 15px;
+            width: 300px;
+            position: relative;
+            border: 3px solid black;
+            background-color: aqua;
+            border-radius: 20px;
+            box-shadow: 10px 10px 5px 0px rgba(117, 102, 102, 0.75);
+
+        }
+
+        .header-box img {
+            height: 60px;
+            position: absolute;
+            top: -12px;
+        }
+
+        .header-box h1 {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .header-box hr {
+            height: 3px;
+            background-color: black;
+        }
+
+        section h2,
+        section p {
+            text-align: center;
+        }
+
+        section h2 {
+            padding: 15px 0;
+        }
+
+        .table-1 {
+            margin: 10px 200px;
+        }
+
+        .table-1 input {
+            margin: 5px auto;
+        }
+
+        form hr {
+            width: 86%;
+            height: 2px;
+            background-color: brown;
+        }
+
+        .click {
+            padding-left: 40%;
+
+        }
+    </style>
+</head>
+
+<body style="height: 130vh;">
+    <div class="container">
+        <header>
+            <div class="header-box">
+                <img width="55px" src="./img/zyro-image.png" alt="">
+                <h1>Jackson</h1>
+                <hr>
+                <h1>Electronic</h1>
+            </div>
+        </header>
+        <section>
+            <h2>Registration Form</h2>
+            <p>Register your Electronic product here</p>
+            <form action="1">
+                <table class="table-1">
+                    <col width="200px" span="1">
+                    <tr>
+                        <td>First Name</td>
+                        <td>
+                            <input type="text" size="20">
+                        </td>
+                        <td>Last Name:</td>
+                        <td><input type="text" size="20"></td>
+                    </tr>
+                    <tr>
+                        <td>Address #1:</td>
+                        <td colspan="2"><input type="text" size="30"></td>
+                    </tr>
+                    <tr>
+                        <td>Address #2:</td>
+                        <td colspan="2"><input type="text" size="30"></td>
+                    </tr>
+                    <tr>
+                        <td>City:</td>
+                        <td><input type="text"></td>
+                        <td colspan="0.5">State: <input type="text" size="2"></td>
+                        <td colspan="0.5">Zip:<input type="text" size="5"></td>
+                    </tr>
+                    <tr>
+                        <td>Country</td>
+                        <td><input type="text" value="United States"></td>
+                    </tr>
+
+                </table>
+                <hr>
+            </form>
+            <form action="2">
+                <table class="table-1">
+
+                    <tr>
+                        <td>Product: </td>
+                        <td>
+                            <select name="" id="select">
+                                <option value="0">ScanMaster</option>
+                                <option value="1">ScanMaster-1</option>
+                                <option value="2">ScanMaster-2</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date Purchased:</td>
+                        <td colspan="2"><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Serial #</td>
+                        <td colspan="2"><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Used for:</td>
+                        <td>
+                            <input type="radio" name="" id="">Home<br>
+                            <input type="radio" name="" id="">Bussiness<br>
+                            <input type="radio" name="" id="">Goverment
+                        </td>
+                        <td>
+                            <input type="radio" name="" id="">Educational Institution<br>
+                            <input type="radio" name="" id="">Other
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>System(check all that apply):</td>
+                        <td>
+                            <input type="checkbox" name="" id="">Windows<br>
+                            <input type="checkbox" name="" id="">Macintosh
+                        </td>
+                        <td>
+                            <input type="checkbox" name="" id="">UNIX<br>
+                            <input type="checkbox" name="" id="">Other
+                        </td>
+                    </tr>
+                </table>
+                <hr>
+            </form>
+            <form action="3">
+                <table class="table-1">
+                    <col width="200px" span="1">
+                    <tr>
+                        <td>Comment?:</td>
+                        <td>
+                            <textarea name="" id="" cols="60" rows="8"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <form class="click" action="">
+                <input type="button" value="Click to Register">
+                <input type="button" value="Click to Cancle">
+            </form>
+        </section>
+    </div>
+</body>
+
+</html>

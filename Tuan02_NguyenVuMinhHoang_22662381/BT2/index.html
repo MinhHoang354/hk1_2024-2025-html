@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 2</title>
+    <!-- reset css  -->
+    <link rel="stylesheet" href="./reset.css">
+
+    <!-- Embed font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+    box-sizing: border-box;
+}
+
+
+body {
+    height: 150vh;
+    font-family: 'Noto Sans Georgian', sans-serif;
+}
+
+
+.container {
+    margin-top: 50px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 940px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.heading__2 {
+    margin: 10px 0px 5px;
+    font-size: 24px;
+}
+
+.heading__3 {
+    color: #de6581;
+    font-size: 19px;
+}
+
+
+/* header  */
+
+header {
+    height: 160px;
+    background-image: url(./img/background.png);
+}
+
+
+.logo {
+    margin-top: 10px;
+    display: inline-block;
+    height: 110px;
+    width: 100px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.main_heading {
+    font-size: 32px;
+}
+
+.main_content {
+    margin-bottom: -28px;
+    margin-left: 9px;
+    font-weight: 550;
+    color: #fff;
+}
+
+.main_heading p {
+    font-size: 17px;
+}
+
+
+.nav__list {
+    margin-top: 10px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    background-color: #b0afab;
+    height: 30px;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 13px;
+    transition: .3s linear;
+}
+
+.nav__link:hover {
+    color: #000;
+    text-shadow: 1px 0 0 #000;
+}
+
+/* section */
+section {
+    width: 659px;
+    border-right: 1px solid #eeeeee;
+}
+
+article {
+    margin-left: -12px;
+    display: flex;
+}
+
+
+figure {
+    margin: 20px;
+    display: inline-block;
+    padding: 5px 5px 0 5px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+
+}
+
+figcaption {
+    font-size: 13px;
+    line-height: 30px;
+}
+
+
+.main__dishes {
+    object-fit: cover;
+    height: 190px;
+    width: 290px;
+    transition: 1s linear;
+}
+
+figure:hover {
+    position: relative;
+    top: -10px;
+    cursor: pointer;
+}
+
+.content {
+    margin-top: 25px;
+}
+
+content:last-child {
+    margin-top: 35px;
+}
+
+.content .desc {
+    font-size: 15.5px;
+    line-height: 1.4;
+    margin: 21px 0;
+}
+
+/* aside  */
+.section__inner {
+    display: flex;
+}
+
+aside {
+    padding-left: 20px;
+    width: 230px;
+}
+
+aside h2 {
+    margin: 0px;
+    width: 230px;
+    padding: 30px 0px 10px;
+    color: #de6581;
+}
+
+aside a {
+    width: 230px;
+    display: block;
+    color: #de6581;
+    text-decoration: none;
+    padding: 14px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+aside a:first-child {
+    display: block;
+    margin-top: 20px;
+}
+
+aside a:hover {
+    color: #985d6a;
+    background-color: #efefef;
+}
+
+aside .desc {
+    margin: 16px 0;
+    width: 230px;
+    line-height: 1.4;
+}
+
+/* footer  */
+footer {
+    padding-left: 20px;
+    line-height: 40px;
+    height: 40px;
+    width: 100%;
+    font-size: 12.8px;
+    color: #fff;
+    background-color: #aeaca8;
+}
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="flex">
+                <img src="./img/logo.png" alt="logo" class="logo">
+                <div class="main_content">
+                    <h1 class="main_heading">YOKO'S KITCHEN</h1>
+                    <p>JAPANESE COOKING CLASSES</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a class="nav__link" href="#!">home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#!">classes</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#!">catering</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#!">about</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#!">contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="section__inner">
+            <section>
+                <article>
+                    <figure>
+                        <img class="main__dishes" src="./img/bok-choi.jpg" alt="Bok Choi">
+                        <figcaption>Bok Choi</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h2 class="heading__2">Japanese Vegetarian</h2>
+                        <h3 class="heading__3">Five week course in London</h3>
+                        <p class="desc">
+                            A five week introduction to traditional Japanese vegetarian
+                            meals,teaching you a selection of rice and noodle dishes.
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <figure>
+                        <img class="main__dishes" src="./img/teriyaki.jpg" alt="Teriyaki Sauce">
+                        <figcaption>Teriyaki Sauce</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h2 class="heading__2">Sauces Masterclass</h2>
+                        <h3 class="heading__3">One day workshop</h3>
+                        <p class="desc">
+                            An intensive one-day course looking at how to create the most
+                            delicious sauces for use in a range of Japanese cookery.
+                        </p>
+                    </div>
+                </article>
+            </section>
+            <aside>
+                <section>
+                    <h2 class="heading__2">
+                        Popular Recipies
+                    </h2>
+                    <a href="#!">Yakitori (grilled chicken)</a>
+                    <a href="#!">Tsukune (minced chicken patties)
+                    </a>
+                    <a href="#!">Okonomiyaki (savory pancakes)
+                    </a>
+                    <a href="#!">Mizutaki (chicken stew)
+                    </a>
+                </section>
+                <section>
+                    <h2 class="heading__2">
+                        Contact
+                    </h2>
+                    <p class="desc">
+                        Yoko's Kitchen <br>
+                        27 Redchurch Street <br>
+                        Shoreditch <br>
+                        London E2 7DP <br>
+                    </p>
+                </section>
+            </aside>
+        </div>
+        <footer>© 2011 Yoko's Kitchen</footer>
+    </div>
+</body>
+
+</html>
