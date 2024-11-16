@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url(/assets/img/background/forest-landscape.png);
+    background-size: 100%;
+}
+
+.search {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.search #search-input {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search #search-input img {
+    width: 35px;
+}
+
+.search #search-input input {
+    width: 90%;
+}
+
+.hide {
+    display: none;
+}
+/*  */
+.containerSearch{
+    display: flex;
+}
+
+.row{
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+

@@ -1,0 +1,54 @@
+.signinformwrap{
+    position: relative;
+    width: 50%;
+    height: auto;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 10px 0px #1B2021;
+    left: 25%;
+    margin-top: 10%;
+    padding: 50px;
+    text-align: center;
+}
+
+
+form {
+    text-align: left ;
+    position: relative;
+    left: 25%;
+    width: 50%;
+}
+form h3{
+
+    text-align: center;
+}
+
+input[type=text], input[type=password] ,input[type=tel]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.button-logIn {
+    background-color: #1B2021;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+  
+.button-logIn:hover {
+    opacity: 0.8;
+}
+.login_link{
+    position: relative;
+    background-color: #1B2021;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}

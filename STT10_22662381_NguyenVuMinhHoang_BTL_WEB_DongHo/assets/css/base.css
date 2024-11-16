@@ -1,0 +1,233 @@
+/*dùng cho tất cả html */
+/*bao gồm header và footer dùng chung trong các trang html khác*/
+@font-face {
+	font-family: Helvetica;
+	src: url(../font/Helvetica.ttf);
+}
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+
+@media screen and (max-width:800px){
+
+}
+
+/*MENUHEAD*/
+#topheader{
+    background-color: black;
+    width: 100%;
+    height: 40px;
+    position: relative;
+    justify-content: center;
+}
+#topheader p{
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 8px 0 0 0 ;
+}
+
+header{
+    background-color: #1B2021; 
+    max-height: 150px;
+}
+#mainmenu{
+    padding: 0 50px 0 50px;
+    background-color: #1B2021;
+    box-shadow: 0px 0px 10px 0px #1B2021;
+    display: flex;
+    justify-content: space-between;
+}
+#mainmenu div{
+    position: relative;
+    padding: 2px 0 0 2px;
+    width: 300px;
+    height: 100px; 
+    filter: invert(100%);
+}
+#mainmenu div img{
+    object-fit: cover;
+    width: 400px;
+    height: 90px;
+    justify-content: space-between;
+
+}
+#nav-list{
+    width: 30%;
+    float: flex;
+    display: flex;/* Thêm dòng này để sử dụng flexbox */
+    align-items: center; /* Đảm bảo phần tử con được căn giữa theo chiều dọc */
+    justify-content: flex-start; /* Đẩy các phần tử về phía bên phải */
+}
+
+#nav-list li{
+    display: inline-flex;
+    width: 300px;
+    height: 80px;
+}
+#nav-list li a {
+    color: rgb(255, 243, 243);
+    text-decoration: none;
+    line-height: 40px;
+    padding: 30px 10px;
+    display: inline;
+    font-size: 20px;
+    height :28px ;
+
+}
+
+#nav-list li a:hover {
+text-decoration: underline;
+background-color: #111414;
+}
+
+#nav-list-2 {
+    max-width: 45%;
+    float: right;
+    display: flex; /* Thêm dòng này để sử dụng flexbox */
+    align-items: center; /*Đảm bảo phần tử con được căn giữa theo chiều dọc*/
+    justify-content: flex-end; 
+}
+#nav-list-2 li{
+    display: inline-flex;
+}
+#nav-list-2 li a{
+    color: rgb(255, 243, 243);
+    text-decoration: none;
+    line-height: 48px;
+    padding: 10px 10px;
+    display: inline;
+    font-size: 20px;
+}
+
+#nav-list-2 li a img {
+    filter: invert(100%);
+    width: 30px; 
+    height: 30px; 
+    object-fit: cover;
+    padding: 10px 5px 0 0;
+    float: center;
+}
+
+#nav-list-2  li img{
+    filter: invert(100%);
+    width: 28px; 
+    height: 28px; 
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding: 7px 3px 0 0;
+    float:  center;
+}
+#nav-list-2 input[type=text] {
+    padding: 15px;
+    font-size: 15px;
+    border-top: #ccc;
+    border-left: #ccc;
+    border-right: #ccc;
+    float: left;
+    width: calc(100% - 5px); /* Thay đổi giá trị để điều chỉnh chiều rộng của ô input */
+    height: 15px ;
+    background-color:#1B2021;
+    color : white;
+    outline: none;
+}
+#nav-list-2 li a:hover {
+text-decoration: underline;
+background-color: #111414;
+}
+
+
+
+/*nút mở*/
+.openBtn {
+    background: #1B2021;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: rgb(255, 243, 243);
+    text-decoration: none;
+    display: inline;
+    font-size: 20px;
+}
+  
+.openBtn:hover {
+    background: #111414;
+}
+  
+/* tắt tìm kiếm */
+.overlayk .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    cursor: pointer;
+    color: white;
+}
+  
+.overlayk .closebtn:hover {
+    color: #ccc;
+    width: 100%;
+    align-items: center;
+}
+/**/
+.overlayk input[type=text] {
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: white;
+}
+.overlayk input[type=text]:hover {
+    background: #f1f1f1;
+}
+/* footer */
+footer{
+    width: 100%;
+    margin-top: 200px;
+    background-color: #1B2021;
+    display: inline-flex;
+    flex-direction: row;
+}
+#footer-info{
+    position: relative;
+    width: 90%;
+    justify-content: space-around;
+}
+.footer div table{
+    position: relative;
+    left: 10%;
+    color: white;
+    text-align: left;
+    padding: 150px 0;
+}
+.footer div table th h1{
+    padding:10px 0 10px 0px
+}
+.footer div table th h2{
+    padding:10px 0 10px 50px
+}
+.footer div a{
+    text-decoration: none;
+    color: #F7F0F5;
+    
+}
+
+.footer div a:hover{
+    color: #27577e;
+    
+}
+#googlemap{
+    float: right;
+    opacity: 50%;
+    padding: 40px 30px 30px 30px;
+}
+#googlemap:hover{
+    opacity: 100%;
+    padding: 40px 30px 30px 30px;
+    
+    
+}
