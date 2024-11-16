@@ -1,0 +1,40 @@
+.search-box{
+    background-color: whitesmoke;
+	width: 350px;
+    height: 40px;
+    overflow: hidden;
+	margin: 1% 10% auto auto;
+	border-radius: 25px;
+	transition: all 0.5s ease;
+	position: relative;
+}
+.search-box_input{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: white;
+	color: black;
+	padding: 20px 100px 20px 20px;
+	font-size: 18px;
+	outline: none;
+}
+.search-box:hover{
+	transform: scale(1.1);
+}
+#page-Customer{
+	text-align : center ;
+    position:relative;
+    margin: 0 auto;
+}	
+#page-Customer span{
+	background-color: #ffffff;
+	padding: 10px;
+	display: inline-block;
+	margin: 0 3px;
+	cursor: pointer;
+}
+#page-Customer span:hover{
+	background-color: gray;
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+}

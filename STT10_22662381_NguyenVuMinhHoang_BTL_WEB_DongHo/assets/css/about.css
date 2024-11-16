@@ -1,0 +1,32 @@
+@font-face {
+	font-family: Helvetica;
+	src: url(../font/Helvetica.ttf);
+}
+/* body {
+   
+    width: 1920;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Helvetica;
+  } */
+  
+#aboutcontent{
+    background-image: url('/assets/img/background/cosmetics-product-advertising-stand-exhibition-wooden-podium-green-background-with-leaves-sha.jpg');
+    margin-bottom: 0;
+    background-size: 1000px 1000px ;
+}
+#aboutcontent h1{
+    font-size: 50px;
+    text-align: left;
+    font-family: Helvetica;
+    color: aliceblue;
+    padding-left: 100px;
+    margin-bottom: 50px;
+}
+#aboutcontent p{
+    font-size: 30px;
+    text-align: left;
+    padding: 100px 100px;
+    padding-top: 0;
+   color: aliceblue;
+}

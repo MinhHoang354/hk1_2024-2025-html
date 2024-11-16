@@ -1,0 +1,187 @@
+.listSanPham{
+    margin: 50px auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.listSanPham th{
+    border: 1px solid #ddd;
+    padding-top:12px;
+    padding-bottom:12px;
+    text-align: left;
+    background-color: black;
+    color: white;
+}
+.listSanPham td{
+    border: 1px solid #ddd;     
+}
+.listSanPham .cart_none{
+    color:red; 
+    background-color:white; 
+    font-weight:bold; 
+    text-align:center;
+    padding: 15px 0;
+}
+
+.listSanPham tr:hover td button{
+    background-color: rgb(176,212,177);
+}
+
+.listSanPham tr td:first-child, .listSanPham tr th {
+	text-align: center;
+}
+
+.increase-button {
+    margin-right: 10px; /* Khoảng cách bên phải */
+}
+
+/* CSS cho nút "Giảm" */
+.decrease-button {
+    margin-left: 10px; /* Khoảng cách bên trái */
+}
+
+button.quantity-button:hover {
+    background-color: #45a049; 
+}
+
+.listSanPham td a:hover{
+    text-decoration: underline ;
+}
+/*cho nút tăng/giảm số lượng */
+.product-quantity button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.product-quantity button:hover {
+    background-color: #45a049;
+}
+
+#cart-row-template td {
+    text-align: center;
+}
+
+#cart-total-row {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+#cart-total-row strong {
+    font-weight: bold;
+}
+
+#cart-total-row td {
+    padding: 10px;
+}
+
+#cart-total-row button {
+    cursor: pointer;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+#cart-total-row button:hover {
+    background-color: #218838;
+}
+
+
+#cart-row-template .product-image {
+    text-align: center; 
+}
+
+#cart-row-template button {
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin : auto 3px ;
+}
+
+/* button thanh toán */
+#checkoutBtn {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    margin: 0 auto; 
+    display: block;
+    font-size: 20px;
+}
+
+#checkoutBtn:hover {
+    background-color: #45a049; 
+}
+
+/* Style cho modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-heading {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Style cho nút Xem Chi Tiết Đơn Hàng */
+#viewOrderDetailsButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px; 
+    margin-left: 5px;
+   
+}
+
+#viewOrderDetailsButton:hover {
+    background-color: #45a049;
+}
+
+
