@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Trang Admin</title>
+
+   <link rel="stylesheet" href="../assets/css/admin.css">
+   <link rel="stylesheet" href="../assets/css/customer(admin).css">
+   <link rel="stylesheet" href="../assets/css/order(admin).css">
+   <link rel="stylesheet" href="../assets/css/product(admin).css">
+   <link rel="stylesheet" href="../assets/css/statistic(admin).css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+   <!-- <script src="../assets/js/user.js"></script> -->
+</head>
+<script>
+   function checkAdmin(){
+    if(localStorage.getItem('user_login')){
+      var ad = JSON.parse.localStorage.getItem('user_login')
+        if(ad.access && ad.access === "Admin"){
+            window.location.href = "./admin.html"
+        }
+        else{
+            window.location.href = "./user.html"
+         }
+     }else{
+        window.location.href = "./user.html" 
+     }
+    
+}
+checkAdmin()
+
+</script>
+
+<body>
+   
+   <div class="flexbox">
+      <!--Menu-->
+      <div id="leftmenu">
+        
+         <div class="logo"><img src="../assets/img/admin/logo-icon/watchshop-logo.png" alt="Watchshop"></div>
+         <ul>
+            <li><img src="../assets/img/admin/logo-icon/sanpham-logo.png"><a onclick="changeTabs('ListProducts')">Sản
+                  phẩm</a></li>
+            <li><img src="../assets/img/admin/logo-icon/donhang-logo.png"><a onclick="changeTabs('orders')">Đơn hàng</a>
+            </li>
+            <li><img src="../assets/img/admin/logo-icon/khachhang-logo.png"><a onclick="changeTabs('customers')">Khách
+                  hàng</a></li>
+            <li><img src="../assets/img/admin/logo-icon/thongke-logo.png"><a onclick="changeTabs('statistics')">Thống
+                  kê</a></li>
+            <li><img src="../assets/img/admin/logo-icon/logout-logo.png"><a onclick="logout()">Thoát</a></li>
+         </ul>
+      </div>
+
+      <!--content-->
+      <div class="right-content">
+<div class="layout table">
+    <!--Khung noi dung trang sản phẩm-->
+
+    <div id="sanpham">
+
+       <div class="headtable">
+          <h2> DANH SÁCH SẢN PHẨM<button onclick="openModalAdd()"> +Thêm sản phẩm</button> </h2>
+
+       </div>
+       <div style="min-height: 430px;">
+          <table class="table table-white table-hover">
+             <thead>
+                <tr>
+                   <th>Hình ảnh</th>
+                   <th>Mã sản phẩm</th>
+                   <th>Tên</th>
+                   <th>Giá</th>
+                   <th>Mẫu</th>
+                   <th>Số lượng</th>
+                   <th>Sửa</th>
+                   <th>Xóa</th>
+                </tr>
+             </thead>
+             <tbody id="table-list"></tbody>
+          </table>
+       </div>
+       <div id="page-Product">
+
+       </div>
+
+    </div>
+
+    <!--Chức năng thêm-->
+    <div class="modal" id="modal-add-product">
+       <div class="modal-content">
+
+          <div class="ct-form">
+             <span class="close" onclick="closeModalAdd()">x</span>
+             <p class="right-content-add-product_heading">Thêm sản phẩm</p>
+
+             <div class="ct-input">
+                <label class="right-content-add-product_label" for="product-name">Tên sản phẩm</label>
+                <input class="txt-input" id="product-name" onkeyup="checkForm()">
+                <i id="error-product-name" class="error"></i>
+             </div>
+             <div class="ct-input">
+                <label class="right-content-add-product_label" for="product-price">Giá tiền</label>
+                <input class="txt-input" id="product-price">
+                <i id="error-product-price" class="error"></i>
+             </div>
+             <div class="ct-input">
+                <label class="right-content-add-product_label" for="product-quantity">Số lượng</label>
+                <input class="txt-input" id="product-quantity">
+                <i id="error-product-quantity" class="error"></i>
+
+             </div>
+             <div class="ct-input">
+                <label class="right-content-add-product_label" for="product-pattern">Mẫu</label>
+                <select id="product-pattern" class="right-content-add-product__pattern">
+                   <option value="chonmau" hidden disabled selected>Chọn mẫu</option>
+                   <option class="pattern-option" value="Classic">Classic</option>
+                   <option class="pattern-option" value="Quadro">Quadro</option>
+                   <option class="pattern-option" value="Luminie">Luminie</option>
+                   <option class="pattern-option" value="Petite">Petite</option>
+                   <option class="pattern-option" value="Glasses">Glasses</option>
+                </select>
+                <i id="error-product-pattern" class="error"></i>
+             </div>
+             <div class="ct-input">
+                <label class="right-content-add-product_label" for="product-description">Mô tả</label>
+
+                <textarea class="txt-input" id="product-description"></textarea>
+                <i id="error-product-description" class="error"></i>
+
+             </div>
+             <div class="ct-input">
+                <label class="right-content-add-product_label" for="product-name">Hình ảnh</label>
+                <div class="right-content-add-product_labe-frame-img">
+                   <label for="input-file-img-product">
+                      <img src="../assets/img/admin/logo-icon/placeholder-image.jpg" id="image-pd"
+                         alt="Product Img" class="right-content-add-product_img">
+                   </label>
+                   <input id="input-file-img-product" type="file" onchange="onFileSelected(event, 'add')">
+                </div>
+                <i id="error-product-image" class="error"></i>
+             </div>
+
+             <div class="ct-input">
+                <button class="btn-submit" onclick="submitFormDataProduct()">Thêm</button>
+             </div>
+          </div>
+
+
+       </div>
+    </div>
+
+    <!--Chức năng sửa-->
+    <div class="modal " id="modal-edit-product">
+
+       <div class="modal-content">
+          <div class="ct-form">
+             <span class="close" onclick="closeModalEdit()">x</span>
+             <p class="right-content-add-product_heading">Sửa sản phẩm</p>
+             <input style="visibility:hidden" type="text" id="id-edit-product">
+
+             <div class="ct-input">
+                <label class="right-content-add-product_label" for="product-name-edit">Tên sản phẩm</label>
+                <input class="txt-input" id="product-name-edit">
+
+             </div>
+             <div class="ct-input">
+                <label class="right-content-add-product_label" for="product-price-edit">Giá tiền</label>
+                <input class="txt-input" id="product-price-edit">
+
+             </div>
+             <div class="ct-input">
+                <label class="right-content-add-product_label" for="product-quantity-edit">Số lượng</label>
+                <input class="txt-input" id="product-quantity-edit">
+
+
+             </div>
+             <div class="ct-input">
+                <label class="right-content-add-product_label" for="product-pattern-edit">Mẫu</label>
+                <select id="product-pattern-edit" class="right-content-add-product__pattern">
+                   <option value="chonmau" hidden disabled selected>Chọn mẫu</option>
+                   <option class="pattern-option" value="Classic">Classic</option>
+                   <option class="pattern-option" value="Quadro">Quadro</option>
+                   <option class="pattern-option" value="Luminie">Luminie</option>
+                   <option class="pattern-option" value="Petite">Petite</option>
+                   <option class="pattern-option" value="Glasses">Glasses</option>
+                </select>
+             </div>
+             <div class="ct-input">
+                <label class="right-content-add-product_label" for="product-description-edit">Mô tả</label>
+                <textarea class="txt-input" id="product-description-edit"></textarea>
+             </div>
+             <div class="ct-input">
+                <label class="right-content-add-product_label" for="product-name">Hình ảnh </label> <button
+                   id="deleteimg" onclick="deleteImage()">Bỏ hình</button>
+                <div class="right-content-add-product_labe-frame-img">
+                   <label for="input-file-img-product-edit">
+                      <img src="../assets/img/admin/logo-icon/placeholder-image.jpg" id="image-pd-edit"
+                         alt="Product Img" class="right-content-add-product_img">
+                   </label>
+                   <input id="input-file-img-product-edit" type="file" onchange="onFileSelected(event,'edit')">
+                </div>
+             </div>
+             <div class="ct-input">
+                <button class="btn-submit" onclick="editProduct()">Sửa</button>
+             </div>
+          </div>
+       </div>
+    </div>
+
+    <!--Kết thúc mục danh sách sản phẩm-->
+    <!--Kết thúc mục danh sách sản phẩm-->
+    <div id="donhang">
+      <div class="headtable">
+         <div class="row">
+            <h2>DANH SÁCH ĐƠN HÀNG </h2>
+            <br>
+            <p>Từ ngày: <input id="time1" type="date"></p>
+            <p>Đến ngày: <input id="time2" type="date"></p>
+            <p id="search" style="cursor: pointer;" onclick="SearchOrders()">Tìm kiếm</p>
+         </div>
+      </div>
+      <div style="height: 430px; padding: 20px;">
+      <table class="table table-white table-hover">
+         <thead>
+            <tr>
+               <th>Ngày</th>
+               <th>Mã đơn hàng</th>
+               <th>Mã khách hàng</th>
+               <th>Tổng tiền</th>
+               <th>Tình trạng</th>
+               <th>Chi tiết</th>
+            </tr>
+         </thead>
+         <tbody id="order-table-list"></tbody>
+      </table>
+   </div>
+      <div id="page-Order">
+      </div>
+   </div>
+
+
+   <!--Nội dung chi tiết sản đơn hàng-->
+   <div id="orderDetail" class="modal">
+      <div class="modal-content">
+         <span class="close" onclick="closeDetail()">X</span>
+         <p class="right-content-add-product_heading">Chi tiết hóa đơn</p>
+         <div>
+            <br>
+            <p>Mã đơn hàng : <span id="idO"></span></p>
+            
+            <table>
+               <thead>
+                  <tr>
+                     <th>Tên sản phẩm</th>
+                     <th>Số lượng</th>
+                     <th>Giá</th>
+                  </tr>
+               </thead>
+               <tbody id="detail-O"></tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+
+
+ <!--kết thúc danh sách đơn hàng-->
+
+ <!--Nội dung khách hàng-->
+ <div id="khachhang">
+    
+    <!-- Tìm kiếm -->
+   <div class="search-box">
+     <input type="text" class="search-box_input" id="inputSearch" placeholder="Nhập mã số khách hàng">
+  </div>
+       <div class="headtable">
+          <h2>DANH SÁCH KHÁCH HÀNG </h2>
+       </div>
+       <div style="height: 430px;">
+     <table class="table table-white table-hover">
+        <thead>
+           <tr>
+                <th>Mã khách hàng</th>
+                <th>Họ tên</th>
+                <th>Địa chỉ</th>
+                <th>Điện thoại</th>
+                <th>Tên đăng nhập</th>
+                <th>Mật khẩu</th>
+                <th>Quyền truy cập</th>
+           </tr>
+        </thead>
+        <tbody id="table-list1"></tbody>
+     </table>
+     <!-- Phân trang -->
+    </div>
+     <div id="page-Customer">
+
+     </div> 
+  </div>
+ <!--Kết thúc danh sách khách hàng-->
+
+ <div id="thongke">
+   <div class="headtable">
+      <h2>THỐNG KÊ DOANH THU</h2>
+   </div>
+   <label for="dateRange" style="margin-left: 4%;">Từ ngày:</label>
+      <input type="text" id="startDate" placeholder="MM/DD/YYYY">
+   <label for="dateRange">Đến ngày:</label>
+      <input type="text" id="endDate" placeholder="MM/DD/YYYY">
+   <label for="productType">Lọc theo:</label>
+   <select id="productType">
+       <option>----------Chọn----------</option>
+       <!-- <option value="Classic">Classic</option>
+       <option value="Quadro">Quadro</option>
+       <option value="Luminie">Luminie</option>
+       <option value="Petite">Petite</option>
+       <option value="Glasses">Glasses</option> -->
+       <option value="Silver Ocean">Silver Ocean</option>
+       <option value="Blue Soft White">Blue Soft White</option>
+       <option value="Blue Silver Black">Blue Silver Black</option>
+       <option value="Blue Gold Black">Blue Gold Black</option>
+       <option value="Golden Sphere">Golden Sphere</option>
+       <option value="Titan Sphere">Titan Sphere</option>
+       <option value="Silver & Black">Silver & Black</option>
+       <option value="Onyx Men">Onyx Men</option>
+       <option value="Golden Green">Golden Green</option>
+       <option value="P - Golden">P - Golden</option>
+       <option value="Rec - Golden">Rec - Golden</option>
+       <option value="Light Golden">Light Golden</option>
+       <option value="Silver Black">Silver Black</option>
+       <option value="White Golden">White Golden</option>
+       <option value="Stained Gold">Stained Gold</option>
+       <option value="Y - Golden">Y - Golden</option>
+       <option value="Lil Golden">Lil Golden</option>
+       <option value="Golden Plat">Golden Plat</option>
+       <option value="Black King Bar">Black King Bar</option>
+       <option value="Black Soldier">Black Soldier</option>
+       <option value="W-Golde">W-Golden</option>
+       <option value="W-Platinnum">W-Platinnum</option>
+       <option value="Stained Golden">Stained Golden</option>
+       <option value="Pink - Golden">Pink - Golden</option>
+       <option value="Silver & Black">Silver & Black</option>
+       <option value="Silver & Ocean">Silver & Ocean</option>
+       <option value="Rec - Golden">Rec - Golden</option>
+       <option value="White Golden">White Golden</option>
+       <option value="Gold & White">Gold & White</option>
+       <option value="Stained P-Gold">Stained P-Gold</option>
+       <option value="Silver & Dig">Silver & Dig</option>
+       <option value="Gold & Black">Gold & Black</option>
+       <option value="Quad - Golden">Quad - Golden</option>
+       <option value="Platinum & Ocean">Platinum & Ocean</option>
+       <option value="Leather - Gold">Leather - Gold</option>
+       <option value="Golden">Golden</option>
+       <option value="White Leather">White Leather</option>
+       <option value="Black King Gold">Black King Gold</option>
+       <option value="Platinum & White">Platinum & White</option>
+       <option value="Basic Leather">Basic Leather</option>
+       <option value="P-Golden">P-Golden</option>
+       <option value="Silver & Ocean">Silver & Oceans</option>
+       <option value="Gold & White">Golden & White</option>
+       <option value="White Golden">White Golden</option>
+       <option value="Brown Leather">Brown Leather</option>
+       <option value="Gold & Black">Gold & Black</option>
+       <option value="Copper Gold">Copper Gold</option>
+       <option value="Flat Platinum">Flat Platinum</option>
+       <option value="Mayo Glass">Mayo Glass</option>
+       <option value="Pinky Glass">Pinky Glass</option>
+       <option value="Olive Glass">Olive Glass</option>
+       <option value="SunPink Glass">SunPink Glass</option>
+       <option value="Black Glass">Black Glass</option>
+       <option value="Paris Glass">Paris Glass</option>
+       <option value="Miu Glass">Miu Glass</option>
+       <option value="Sun Glass">Sun Glass</option>
+       <option value="all">Tất cả</option>
+   </select>
+   <button onclick="applyFilters()">Lọc</button>
+   <div id="row">
+      <div class="row1">
+         <p>Tổng sản phẩm đã bán</p>
+         <p>Tổng: <span id="totalProductsSold">0</span></p>
+      </div>
+      <div class="row1">
+         <p>Tổng doanh thu</p>
+         <p>Tổng: <span id="totalRevenue">0đ</span></p>
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+
+<script src="../assets/js/products(admin).js"></script>
+<script src="../assets/js/order(admin).js"></script>
+<script src="../assets/js/customer(admin).js"></script>
+<script src="../assets/js/signup-signin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="../assets/js/statistics(admin).js"></script>
+<script src="../assets/js/admin.js"></script>
+
+
+</body>
+</html>
