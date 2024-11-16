@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="vi">
+
+<head>
+    <title>Watch Shop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/Slider.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/homepage.css">
+    <link rel="stylesheet" href="../assets/css/product_all.css">
+    <link rel="stylesheet" href="../assets/css/cart.css">
+    <link rel="stylesheet" href="../assets/css/about.css">
+    <link rel="stylesheet" href="../assets/css/register.css">
+    <link rel="stylesheet" href="/assets/css/search.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/1d4366ccab.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div id="topheader"
+        style="background-color: black;width: 100%;height: 40px;position: relative;justify-content: center;">
+        <p style="position: relative;color: white;text-align: center;padding: 8px 0 0 0 ;    letter-spacing: 3px;">
+            <a onclick="changeTabs1('about')" style="text-decoration:none;color:white;cursor: pointer;">Câu chuyện của
+                chúng tôi</a>
+            <span id="userGreeting"
+                style="display: none; color: white; float:right;margin-bottom: 5px;position:absolute; right:5px;top:6px;"></span>
+        </p>
+    </div>
+    <!--Phần menu  -->
+    <div id="main">
+        <div class="header">
+            <div id="mainmenu">
+                <ul id="nav-list">
+                    <li><a style="cursor: pointer;" onclick="changeTabs1('Men')">NAM GIỚI</a></li>
+                    <li><a style="cursor: pointer;" onclick="changeTabs1('Women')">NỮ GIỚI</a></li>
+                    <li><a style="cursor: pointer;" onclick="changeTabs1('Glasses')">PHỤ KIỆN</a></li>
+
+                </ul>
+                <div><a id="home-logo" style="cursor: pointer;" onclick="changeTabs1('index')"><img
+                            src="../assets/img/logo/watch_shop-removebg-preview.png"> </a></div>
+                <ul id="nav-list-2">
+                    <li><img src="../assets/img/icon/magnifying-glass-solid.svg" onclick="searchProduct()"><a><input
+                                type="text" id="searchInput" placeholder="Bạn cần tìm gì ?"
+                                onclick="changeTabs1('search')"></li></a></li>
+                    <li><a style="cursor: pointer;" onclick="changeTabs1('Cart')"><img style="width:28px;height :28px"
+                                src="../assets/img/logo/icons8-cart-24.png">GIỎ HÀNG</a></li>
+                    <li><a id="loginNavItem" style="cursor: pointer;" onclick="changeTabs1('login')"><img
+                                style="width:28px;height :28px" src="../assets/img/logo/icons8-account-24.png">ĐĂNG
+                            NHẬP</a>
+                    </li>
+                    <li><a id="logoutNavItem" style="display: none;cursor: pointer;" onclick="logout()"><img
+                                src="../assets/img/logo/icons8-account-24.png">ĐĂNG XUẤT</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Nội dung trang chủ -->
+    <div id="trangchu">
+        <div class="slideshow-container" onload="plusSlides()">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="../assets/img/banner/banner-classic.png" style="width:100%">
+                    <div class="text">Classic</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="../assets/img/banner/banner-petite.png" style="width:100%">
+                    <div class="text">Petite</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="../assets/img/banner/banner-lumine.png" style="width:100%">
+                    <div class="text">Lumine</div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+            </div>
+            <br>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+        <div>
+            <ul id="nav-w">
+                <li><img src="../assets/img/icon/trolley.png">
+                    <p>MIỄN PHÍ VÂN CHUYỂN</p>
+                </li>
+                <li><img src="../assets/img/icon/shield.png">
+                    <p>BẢO HÀNH 7 NĂM</p>
+                </li>
+                <li><img src="../assets/img/icon/box.png">
+                    <p>100% CHÍNH XÁC</p>
+                </li>
+            </ul>
+        </div>
+        <div id="nav-select">
+            <p><a style="cursor: pointer;" onclick="changeTabs1('Men')">ĐỒNG HỒ NAM</a></p>
+            <p><a style="cursor: pointer;" onclick="changeTabs1('Women')">ĐỒNG HỒ NỮ</a></p>
+            <p><a style="cursor: pointer;" onclick="changeTabs1('Glasses')">PHỤ KIỆN</a></p>
+        </div>
+        <div id="product-list">
+            <!-- nam -->
+            <div id="SanphamDhnam">
+                <div class="main">
+                    <div class="menu">
+                        <div class="menu-type" id="dhnam">
+                            <div class="menu-product" id="productListDHnam"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="banner2">
+                <div id="inbanner2">
+                    <img src="../assets/img/banner/banner3.webp">
+                </div>
+                <div id="txbanner2">
+                    <h1>BÍ MẬT CỦA THỜI GIAN</h1>
+                    <h2>Theo thời gian, chúng tôi đã chuyển đổi. Chúng tôi đã tạo ra một cộng đồng và chúng tôi thể hiện
+                        thật phong cách. Chúng tôi đã ở ngay đó cùng với những người có ảnh hưởng chân thực và đã được
+                        xác minh đầu tiên.</h2>
+                </div>
+            </div>
+            <!-- nữ -->
+            <div id="SanphamDhnu">
+                <div class="main">
+                    <div class="menu">
+                        <div class="menu-type" id="dhnu">
+                            <div class="menu-product" id="productListDHnu"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="banner3">
+                <div id="txbanner3">
+                    <h1>SÀNH ĐIỆU VÀ QUÝ PHÁI</h1>
+                    <h2>
+                        Đồng hồ nữ và đồng hồ nam sành điệu đều thiết thực, trang nhã và có thể tạo nên vẻ ngoài hoàn
+                        chỉnh. Trước đây, đồng hồ độc quyền gắn liền với địa vị nhiều hơn, ngày càng rõ ràng rằng đồng
+                        hồ cũng là một phụ kiện cho một bức tranh lớn hơn.
+                    </h2>
+
+                </div>
+                <div id="inbanner3">
+                    <img src="../assets/img/banner/banner4.png">
+                </div>
+            </div>
+            <!-- phụ kiện -->
+            <div id="SPPhukien">
+                <div class="main">
+                    <div class="menu">
+                        <div class="menu-type" id="phukien">
+                            <div class="menu-product" id="productListPhuKIen"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nôi dung trang tìm kiếm -->
+    <div class="search" id="searchProduct" >
+        <div class="containerSearch">
+            <div class="row">
+                <label for="priceRange">Chọn khoảng giá:</label>
+                <select id="priceRange">
+                    <option>------------------Chọn giá------------------</option>
+                    <option value="0-1000000">Dưới 1,000,000 VND</option>
+                    <option value="1000000-2000000">1,000,000 VND - 2,000,000 VND</option>
+                    <option value="2000000-3000000">2,000,000 VND - 3,000,000 VND</option>
+                    <option value="3000000-4000000">3,000,000 VND - 4,000,000 VND</option>
+                    <!-- <option value="4000000-5000000">4,000,000 VND - 5,000,000 VND</option> -->
+                  
+                </select>
+            </div>
+            <br>
+            <div class="row">
+                <label for="patternRange">Chọn mẫu:</label>
+                <select id="patternRange">
+                    <option>--------Chọn mẫu---------</option>
+                   <option class="pattern-option" value="Classic">Classic</option>
+                   <option class="pattern-option" value="Quadro">Quadro</option>
+                   <option class="pattern-option" value="Luminie">Luminie</option>
+                   <option class="pattern-option" value="Petite">Petite</option>
+                   <option class="pattern-option" value="Glasses">Glasses</option>
+                </select>
+            </div>
+            <!-- <button id="filterButton" onclick=" filterProducts()">Lọc</button> -->
+        </div>
+        <div class="main">
+            <div class="menu">
+                <div class="menu-type" id="searchMenu">
+                    <div class="menu-product" id="productListSearch"></div>
+                    <div class="pagination" id="paginationSearch"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Nội dung sản phẩm nam-->
+    <div id="SanphamNam">
+        <div class="main" >
+            <div class="menu">
+                <div class="menu-type" id="dhnam">
+                    <h4>Đồng hồ nam</h4>
+                    <div class="menu-product" id="productListDhnam"></div>
+                    <div class="pagination" id="paginationDhnam"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Nội dung trang sản phẩm nữ-->
+    <div id="sanphamnu">
+        <div class="main">
+            <div class="menu">
+                <div class="menu-type" id="dhnu">
+                    <h4>Đồng hồ nữ</h4>
+                    <div class="menu-product" id="productListDhnu"></div>
+                    <div class="pagination" id="paginationDhnu"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Nội dung trang phụ kiện-->
+
+    <div id="Phukien">
+        <div class="main">
+            <div class="menu">
+                <div class="menu-type" id="phukien">
+                    <h4>Phụ kiện</h4>
+                    <div class="menu-product" id="productListPhuKien"></div>
+                    <div class="pagination" id="paginationPhuKien"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hiển thị chi tiết  -->
+
+    <div class="popup" id="popup-1">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="closePopup()">&times;</div>
+            <img id="product-img" src="" alt="">
+            <div class="container-left">
+                <ul>
+                    <li id="product-name"></li><br>
+                    <li id="product-price"></li><br>
+                    <li>Size
+                        <select name="" id="product-size">
+                            <option value="20x32">20x32</option>
+                            <option value="30x40">30x40</option>
+                        </select>
+                    </li><br>
+                    <li>Số lượng
+                        <input type="button" value="-" onclick="decrease()" />
+                        <input type="text" id="quantity" size="2" width="2" value="1" />
+                        <input type="button" value="+" onclick="increase()" />
+                    </li><br>
+                    
+                    <button onclick="addtocart()" id="add-cart">Thêm vào giỏ hàng</button><br>
+                </ul>
+            </div>
+            <div id="product-description"></div>
+            <br>
+        </div>
+    </div>
+
+    <!--Nội dung giỏ hàng -->
+
+    <div id="cart" style="min-height: 85vh">
+       
+        <table class="listSanPham">
+            <tbody>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Hình ảnh</th>
+                    <th>Giá</th>
+                    <th>Size</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th>Thời gian</th>
+                    <th>Xóa</th>
+                </tr>
+                <tr id="cart-row-template" style="display: none;">
+                    <td></td>
+                    <td class="product-name"></td>
+                    <td class="product-image"></td>
+                    <td class="product-price"></td>
+                    <td class="product-size"></td>
+                    <td class="product-quantity"></td>
+                    <td class="product-total"></td>
+                    <td class="product-time"></td>
+                    <td><button onclick="removeCartItem(this)">Xóa</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <tr id="cart-total-row">
+            <td colspan="9">
+                <strong id="total-amount"></strong>
+            </td>
+        </tr>
+        <button id="checkoutBtn" onclick="confirmPayment()">Đặt hàng</button>
+        <div id="orderList">
+            <!-- Nơi để hiển thị đơn hàng -->
+        </div>
+        <!-- Modal HTML -->
+        <div id="orderDetailModal" class="modal">
+            <div class="modal-content">
+            <span class="close" onclick="closeOrderDetailModal()">&times;</span>
+            <p class="modal-heading">Đơn hàng</p>
+            <div id="orderDetailContent"></div>
+            </div>
+        </div>
+        <button id="viewOrderDetailsButton" onclick="showOrderDetailsModal()">Xem đơn hàng</button>
+        <div id="orderList"></div>
+    </div>
+
+
+    <!--Nội dung about us-->
+
+    <div id="aboutcontentblock" style="min-height: 85vh;">
+        <div id="aboutcontent">
+            <h1>Thời Gian - Dấu Ấn Phong Cách</h1>
+            <p>Việc chọn lựa đồng hồ Daniel Wellington không chỉ là một quyết định kinh doanh mà còn là sự đắm
+                chìm trong cảm hứng và triết lý sống. Daniel Wellington không đơn thuần là một thương hiệu đồng hồ, mà
+                là biểu tượng của sự tinh tế, thanh lịch và đẳng cấp.
+
+                Cảm hứng để lựa chọn đồng hồ Daniel Wellington bắt nguồn từ sự đơn giản tinh tế, lấy cảm hứng từ cuộc
+                sống ngọt ngào và giản dị của Daniel Wellington - người mà thương hiệu đặt tên theo. Sự tận tâm của
+                Daniel trong việc khám phá thế giới đã truyền cảm hứng cho việc tạo ra những chiếc đồng hồ mang đến cho
+                người đeo không chỉ là một phụ kiện mà còn là một cảm nhận về thời gian và những khoảnh khắc quý giá.
+
+                Chúng tôi lựa chọn đưa Daniel Wellington đến gần với các bạn không chỉ là vì sự đẹp mắt của sản phẩm mà còn là vì chất
+                lượng xuất sắc và sự chăm sóc đặt vào từng chi tiết. Những chiếc đồng hồ Daniel Wellington không chỉ là
+                vật trang sức mà còn là biểu tượng của phong cách sống, nơi mà thời gian trở thành một phần quan trọng,
+                được đánh giá cao và tôn trọng.
+
+                Sự đa dạng trong thiết kế cũng là một trong những yếu tố quan trọng thu hút người tiêu dùng. Từ những
+                chiếc đồng hồ có thiết kế cổ điển và lịch lãm đến những mẫu đồng hồ hiện đại và trẻ trung, Daniel
+                Wellington mang đến nhiều lựa chọn cho những người yêu thời trang và đam mê sự độc đáo.</p>
+        </div>
+    </div>
+
+    <!--Nội dung ô đăng nhập-->
+    <div id="dangnhap">
+        <div class="signinformwrap" id="section1">
+            <h1>Đăng nhập</h1>
+            <form>
+                <div class="container">
+                    <div class="field-input">
+                        Tên đăng nhập
+                        <input id="username" name="username" type="text" required autocomplete="off">
+                    </div>
+
+                    <div class="field-input">
+                        Mật khẩu
+                        <input id="password" name="password" type="password" required autocomplete="off" />
+                    </div>
+                    <!-- <p class="forgot"><a href="">Quên mật khẩu</ah></p> -->
+                    <button type="button" class="button-logIn" name="login" onclick="checkLogin()">Đăng nhập</button>
+                </div>
+                <h3>---------HOẶC--------</h3>
+                <a onclick="changeTabs1('singup')"><button class="button-logIn" type="button">Đăng ký</button></a>
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+
+    <!--Nội dung ô đăng ký-->
+    <div id="dangky">
+        <div class="signinformwrap" id="section2">
+            <h1>Đăng ký</h1>
+            <form id="registrationForm">
+                <div class="container">
+                    <div class="field-input">
+                        <label for="email"><b>E-mail<span class="req"></span></b></label>
+                        <input id="email" name="email" type="text" required placeholder="Email">
+                    </div>
+
+                    <div class="field-input">
+                        <label for="ho_ten"><b>Họ và tên<span class="req"></span></b></label>
+                        <input type="text" id="ho_ten" name="ho_ten" required autocomplete="off" placeholder="Họ tên">
+                    </div>
+
+                    <div class="field-input">
+                        <label for="dia_chi"><b>Địa chỉ<span class="req"></span></b></label>
+                        <input type="text" id="dia_chi" name="dia_chi" required autocomplete="off"
+                            placeholder="Địa Chỉ">
+                    </div>
+
+                    <div class="field-input">
+                        <label for="dien_thoai"><b>Số điện thoại<span class="req"></span></b></label>
+                        <input type="text" id="dien_thoai" name="dien_thoai" required autocomplete="off"
+                            placeholder="Số điện thoại">
+                    </div>
+
+                    <div class="field-input">
+                        <label for="username1"><b>Tên đăng nhập<span class="req"></span></b></label>
+                        <input type="text" id="username1" name="username" required autocomplete="off"
+                            placeholder="User Name">
+                    </div>
+
+                    <div class="field-input">
+                        <label for="password1"><b>Mật khẩu<span class="req"></span></b></label>
+                        <input type="password" id="password1" name="password" required autocomplete="off"
+                            placeholder="Password">
+                    </div>
+
+                    <div class="field-input">
+                        <label for="confirmPassword"><b>Nhập lại mật khẩu<span class="req"></span></b></label>
+                        <input id="confirmPassword" type="password" placeholder="Confirm Password"
+                            name="confirmPassword" required autocomplete="off">
+                    </div>
+
+                    <div id="password-match-message"></div>
+
+                    <button class="login_link" type="button" name="login" onclick="submitFormDataRegister()">Đăng
+                        ký</button>
+                </div>
+                <h3 style="margin-top: 5px;">---------HOẶC--------</h3>
+                <a onclick="changeTabs1('login')"><button class="button-logIn" type="button">Đăng nhập</button></a>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div id="footer-info">
+            <div id="googlemap">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15678.100022667191!2d106.68394001445488!3d10.771043359772825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1b7c3ed289%3A0xa06651894598e488!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBTw6BpIEfDsm4!5e0!3m2!1svi!2s!4v1696767564663!5m2!1svi!2s"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>"
+            </div>
+            <table>
+                <tr>
+                    <th>
+                        <h1>Thông tin</h1>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <h2>Gmail : <a href="">nhom1@gmail.com </a></h2>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <h2>Phone : <a href="">090909090909</a></h2>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <h2>Địa chỉ : <a href="">273 An Dương Vương , P3 , Q5</a></h2>
+                    </th>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </footer>
+    <script src="../assets/js/slider.js"></script>
+    <script src="../assets/js/seachbar.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/order(admin).js"></script>
+    <script src="../assets/js/product_all.js"></script>
+    <script src="../assets/js/products(admin).js"></script>
+    <script src="../assets/js/customer(admin).js"></script>
+    <script src="../assets/js/signup-signin.js"></script>
+
+
+    <script src="../assets/js/user.js"></script>
+
+</body>
+
+</html>
